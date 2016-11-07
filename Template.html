@@ -1,0 +1,278 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Purchasing - Oncare</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css' />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="ContentX/bootstrap.min.css" rel="stylesheet" />
+    <link href="ContentX/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="ContentX/button-component.css" rel="stylesheet" />
+    <link href="ContentX/link-component.css" rel="stylesheet" />
+    <link href="ContentX/icon-component.css" rel="stylesheet" />
+    <link href="ContentX/datepicker3.css" rel="stylesheet" />
+    <link href="ContentX/bootstrap-dialog.min.css" rel="stylesheet" />
+    <link href="ContentZ/style.css" rel="stylesheet" />
+    <link href="ContentX/style.css" rel="stylesheet" />
+    <link href="ContentX/styleG.css" rel="stylesheet" />
+    <link href="ContentX/bootstrap.vertical-tabs.css" rel="stylesheet" />
+    <link href="ContentX/jquery.webui-popover.min.css" rel="stylesheet" />
+    <link href="ContentX/jRating.jquery.css" rel="stylesheet" />
+    <link href="ContentX/tabScroll.css" rel="stylesheet" />
+    <link href="ContentX/jquery.tagit.css" rel="stylesheet" />
+    <link href="ContentX/tagit.ui-zendesk.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
+    <link href="tourhelp/introjs.css" rel="stylesheet" />
+    <link href="tourhelp/overlay.css" rel="stylesheet" />
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .logoImg {
+            width: 200px;
+        }
+
+        html {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="hidden" id="Oncare_Extension_Installed" />
+
+
+    <input id="hdn_IsShowInstruction" name="hdn_IsShowInstruction" type="hidden" value="False" />
+    <input type="hidden" value="" id="bannerMsgIds" />
+    <div class="row slim" style="display: none" id="bannerMessages">
+    </div>
+    <header id="top" class="site-header" style="position: relative !important;">
+        <div class="side-width inner">
+            <div class="col-lg-2 col-md-12 logo slim">
+                <a href="#" onclick="return goHome();">
+                    <img class="logoImg" style="padding-top: 5px;" src="ContentZ/images/logo_prop.jpg" /></a>
+            </div>
+
+            <div class="col-lg-2 col-md-12 pull-left serch slim ">
+                <div class="search">
+
+                    <style>
+                        .mobileSButton {
+                            float: right;
+                            margin-top: 10px;
+                            margin-left: 5px;
+                        }
+                    </style>
+                    <div class="search_form">
+                        <form class="form-search" action="#">
+                            <div style="display: flex">
+                                <input style="display: inline" class="search2" type="search" id="searchPOOrder" placeholder="Search For Po/Order" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12 slim navigation">
+
+
+                <input data-val="true" data-val-required="The IsCustomerHavingProperties field is required." id="CurrentUser_IsCustomerHavingProperties" name="CurrentUser.IsCustomerHavingProperties" type="hidden" value="True" />
+
+                <nav id="menu" class="left main-navigation">
+                    <div class="menu-height">
+                        <ul style="margin-bottom: 0px;">
+                            <li>
+                                <a href="/Purchasing/Home" class="active">Home</a>
+                            </li>
+                            <li class="fhide">
+                                <a class="click">Order <b class="caret"></b></a>
+                                <ul class="dropdown-menu-1">
+                                    <li><a href="javascript:addOrder()"><i class="fa fa-plus"></i>Add Order</a></li>
+
+                                    <li><a href="/Purchasing/Orders/Search"><i class="fa fa-search"></i>Search Orders</a></li>
+
+                                    <li><a href="/Purchasing/Orders/SearchOrderGuide"><i class="fa fa-search"></i>Search Order Guides</a></li>
+
+
+                                    <li><a href="javascript:addCustomOrder()"><i class="fa fa-plus"></i>Add Custom Order</a></li>
+                                    <li><a href="javascript:addCashOrder()"><i class="fa fa-plus"></i>Add Cash Order</a></li>
+                                    <li><a href="javascript:addFunctionOrder()"><i class="fa fa-plus"></i>Add Function Order</a></li>
+
+                                    <li>
+                                        <a class="click"><i class="fa fa-search"></i>Search PO <b class="caret"></b></a>
+                                        <ul class="dropdown-menu-2">
+                                            <li><a href="/Purchasing/PO/Search"><i class="fa fa-search"></i>Search PO</a></li>
+                                            <li><a href="/Purchasing/PO/Search?type=2"><i class="fa fa-search"></i>Search Today's</a></li>
+                                            <li><a href="/Purchasing/PO/Search?type=3"><i class="fa fa-search"></i>Search PO(Receive)</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a class="click"><i class="fa fa-file-o"></i>Quotes <b class="caret"></b></a>
+                                        <ul class="dropdown-menu-1">
+                                            <li><a href="/Purchasing/Quote/SearchRFQ"><i class="fa fa-search"></i>Search Quote</a></li>
+                                            <li><a href="javascript:addQuote()"><i class="fa fa-plus"></i>Add Quote</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="fhide">
+                                <a class="click">Catalog <b class="caret"></b></a>
+                                <ul class="dropdown-menu-1">
+                                    <li><a href="#"><i class="fa fa-plus"></i>Coming Soon</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li class="fhide">
+                                <a class="click">Budget <b class="caret"></b></a>
+                                <ul class="dropdown-menu-1">
+                                    <li><a href="#"><i class="fa fa-search"></i>Coming Soon</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="fhide">
+                                <a class="click">Users <b class="caret"></b></a>
+                                <ul class="dropdown-menu-1">
+                                    <li><a href="#"><i class="fa fa-search"></i>Coming Soon</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="fhide">
+                                <a class="click">Facilities <b class="caret"></b></a>
+                                <ul class="dropdown-menu-1">
+                                    <li><a href="#"><i class="fa fa-search"></i>Coming Soon</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="fhide">
+                                <a class="click">Vendor <b class="caret"></b></a>
+                                <ul class="dropdown-menu-1">
+                                    <li><a href="#"><i class="fa fa-search"></i>Coming Soon</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li class="fhide">
+                                <a class="click">Reports<b class="caret"></b></a>
+                                <ul class="dropdown-menu-1">
+                                    <li><a href="/Purchasing/Home/BudgetInfo"><i class="fa fa-search"></i>Budget Dashboard</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="fhide">
+                                <a class="click">Tickets<b class="caret"></b></a>
+                                <ul class="dropdown-menu-1">
+                                    <li><a href="/Purchasing/Tickets/Search"><i class="fa fa-search"></i>Search Ticket</a></li>
+                                    <li><a href="/Purchasing/Tickets/Edit?id=0"><i class="fa fa-plus"></i>Add Ticket</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="customMenuPlaceHolder2"></li>
+                            <li class="lgSup" style="padding-left: 10px; vertical-align: top; padding-top: -10px;">
+                                <a href="#divUploadProfile" role="button" data-toggle="modal" title="Upload pic" style="padding: 4px !important;">
+                                    <span id="noPic1" style="display: none"><i class="fa fa-user fa-2x"></i></span>
+                                    <span id="spnProfilePic">
+                                        <img align="top" src="/Purchasing/Home/GetUserProfilePic" id="imgProfile" class="img-circle" style="max-width: 40px; max-height: 40px;" /></span>
+                                </a>
+                            </li>
+
+
+                            <li class="lgSup">
+                                <a class="sign" href="/Home/LogOut"><i style="display: inline" class="fa fa-power-off"></i>Log Out</a>
+                                <ul class="dropdown-menu-1" style="right: 0px;">
+                                    <li>
+                                        <a href="#">
+                                            <span id="noPic2" style="display: none"><i class="fa fa-user fa-1x"></i></span>
+                                            <img src="/Purchasing/Home/GetUserProfilePic" id="imgProfile1" class="img-circle" style="max-width: 20px; max-height: 20px; padding-top: 4px;" />
+
+
+                                            Sam Schwartz [1062]
+                                
+                                        </a>
+
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-users"></i>Oncare [1049]</a></li>
+                                    <li><a href="#"><i class="fa fa-code"></i>Oncare_MVC_4</a></li>
+                                    <li><a href="#" onclick="return EmailQueue()"><i class="fa fa-at"></i>Email Queue</a></li>
+                                    <li>
+                                        <a href="#divUploadProfile" role="button" data-toggle="modal" title="Upload pic" style="padding-left: 20px"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add Image </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                            <li class="lgSup">
+                                <a class="click">Support<b class="caret"></b></a>
+                                <ul class="dropdown-menu-1" style="right: 0px;">
+                                    <li><a id="contactSupport" href="javascript:Support_BootStrap('Purchasing')"><i class="fa fa-phone"></i>Contact Support</a></li>
+                                    <li><a onclick="return openJoinMeMeeting();" href="#"><i class="fa fa-bullhorn"></i>Share your screen with support</a></li>
+                                </ul>
+                            </li>
+
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="modal fade" id="divUploadProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Upload Profile Picture</h4>
+                                </div>
+                                <div class="modal-body" style="text-align: center">
+
+                                    <input id="uploadFile" placeholder="No File Selected" disabled="disabled" style="width: 70%; height: 34px;" />
+                                    <div class="fileUpload btn btn-default">
+                                        <span>Browse</span>
+                                        <input id="picUpload" type="file" class="upload" accept=".png,.gif,.jpg,.jpeg" />
+                                    </div>
+
+                                    <br />
+                                    <div id="divLoading" style="display: none; text-align: center;">
+                                        <img src="/Images/loading.bar.gif" />
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id="btnUploadPic">Upload</button>
+                                    <button type="button" class="btn btn-danger" id="btnRemovePic">Remove</button>
+                                </div>
+                                <div style="text-align: center;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
+    <div class="clearfix"></div>
+    <div style="margin-top: 5px;" id="mainContainer" class="side-width inner">
+
+    </div>
+</body>
+</html>
+

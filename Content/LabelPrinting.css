@@ -1,0 +1,60 @@
+﻿@media screen
+{
+    table
+    {
+        page-break-inside: auto;
+        padding: 0px;
+        border-spacing: 0px;
+    }
+
+    div
+    {
+        page-break-inside: avoid;
+    }
+
+    p
+    {
+        page-break-after: always;
+    }
+
+    tr
+    {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }    
+}
+
+@page
+{
+    margin:0.4in 0.31in 0.42in 0.27in
+}
+
+
+@media print
+{
+    table
+    {
+        page-break-inside: auto;
+        padding: 0px;
+        border-spacing: 0px;
+    }
+
+    div
+    {
+        page-break-inside: avoid;
+    }
+
+    p
+    {
+        page-break-after: always;
+    }
+
+    tr
+    {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+}
+
+
+

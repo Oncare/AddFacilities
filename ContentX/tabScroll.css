@@ -1,0 +1,36 @@
+﻿.mscrol-fin {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;    
+}
+
+.mscrol-fin ul {
+    position: relative;     
+    left: 0;
+    bottom: -6px; /* Decrease this value for cross-browser compatibility */
+    overflow: auto;
+}
+
+.touch-scroll{
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
+
+.touch-scroll li{
+    display: inline-block !important;
+    float: none !important;
+    margin-right: -4.5px !important;
+}
+
+/*.touch-scroll li .active{
+    padding-top: 15px;
+}
+
+.touch-scroll>li.active>a {
+  padding-top: 8px;
+}
+
+.touch-scroll li a:hover{
+    padding-top: 6px;
+}*/
